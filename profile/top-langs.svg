@@ -126,14 +126,14 @@
     <g class="stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#dea584" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Rust 61.42%
+        Rust 94.04%
       </text>
     </g>
   </g><g transform="translate(0, 32)">
     <g class="stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#3572A5" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Python 38.58%
+        Python 5.96%
       </text>
     </g>
   </g>
@@ -144,8 +144,8 @@
        <g class="stagger" style="animation-delay: 600ms">
         <path
           data-testid="lang-donut"
-          size="61.42"
-          d="M 79.40646008503523 159.36078940745222 A 56.66666666666667 56.66666666666667 0 1 0 116.66666666666667 60"
+          size="94.04"
+          d="M 95.93875880489787 63.927071040750704 A 56.66666666666667 56.66666666666667 0 1 0 116.66666666666667 60"
           stroke="#dea584"
           fill="none"
           stroke-width="12">
@@ -155,8 +155,8 @@
        <g class="stagger" style="animation-delay: 700ms">
         <path
           data-testid="lang-donut"
-          size="38.58"
-          d="M 116.66666666666666 60 A 56.66666666666667 56.66666666666667 0 0 0 79.40646008503523 159.36078940745222"
+          size="5.96"
+          d="M 116.66666666666671 60 A 56.66666666666667 56.66666666666667 0 0 0 95.93875880489787 63.927071040750704"
           stroke="#3572A5"
           fill="none"
           stroke-width="12">
