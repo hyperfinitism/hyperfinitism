@@ -133,14 +133,14 @@
     <g class="stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#89e051" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Shell 6.80%
+        Shell 6.81%
       </text>
     </g>
   </g><g transform="translate(0, 64)">
     <g class="stagger" style="animation-delay: 750ms">
       <circle cx="5" cy="6" r="5" fill="#3572A5" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Python 5.39%
+        Python 5.40%
       </text>
     </g>
   </g><g transform="translate(0, 96)">
@@ -158,8 +158,8 @@
        <g class="stagger" style="animation-delay: 600ms">
         <path
           data-testid="lang-donut"
-          size="82.59"
-          d="M 66.32258129184778 90.65543488337623 A 56.66666666666667 56.66666666666667 0 1 0 116.66666666666667 60"
+          size="82.57"
+          d="M 66.28993437266938 90.71871964787456 A 56.66666666666667 56.66666666666667 0 1 0 116.66666666666667 60"
           stroke="#dea584"
           fill="none"
           stroke-width="12">
@@ -169,8 +169,8 @@
        <g class="stagger" style="animation-delay: 700ms">
         <path
           data-testid="lang-donut"
-          size="6.8"
-          d="M 81.62663326092078 72.13232968905663 A 56.66666666666667 56.66666666666667 0 0 0 66.32258129184778 90.65543488337623"
+          size="6.81"
+          d="M 81.59865843021078 72.15435478063931 A 56.66666666666667 56.66666666666667 0 0 0 66.28993437266938 90.71871964787456"
           stroke="#89e051"
           fill="none"
           stroke-width="12">
@@ -180,8 +180,8 @@
        <g class="stagger" style="animation-delay: 800ms">
         <path
           data-testid="lang-donut"
-          size="5.39"
-          d="M 98.41243415464851 63.02065929884581 A 56.66666666666667 56.66666666666667 0 0 0 81.62663326092078 72.13232968905663"
+          size="5.4"
+          d="M 98.41243415464851 63.02065929884581 A 56.66666666666667 56.66666666666667 0 0 0 81.59865843021078 72.15435478063931"
           stroke="#3572A5"
           fill="none"
           stroke-width="12">
