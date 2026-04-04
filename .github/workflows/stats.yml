@@ -2,21 +2,20 @@ name: Update Stats
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs once daily at midnight
+    - cron: "0 0 * * *" # Runs once daily
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  generate-cards:
+  generate-readme-stats:
     if: true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Generate readme stats card
-        uses: readme-tools/github-readme-stats-action@v1
+        uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
         with:
           card: stats
           options: >-
@@ -28,9 +27,8 @@ jobs:
             }
           path: profile/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Generate top languages card
-        uses: readme-tools/github-readme-stats-action@v1
+        uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
         with:
           card: top-langs
           options: >-
@@ -42,52 +40,51 @@ jobs:
             }
           path: profile/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: stat-cards
           path: profile/*.svg
-
-  generate-pins:
+  generate-repository-pins:
     if: false
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        repo: [ "repo1", "repo2" ]
+          include:
+            - repo: "repo1"
+              owner: "hyperfinitism"
+            - repo: "repo2"
+              owner: "hyperfinitism"
     steps:
-      - uses: actions/checkout@v6
-
-      - name: Generate pin card for ${{ matrix.repo }}
-        uses: readme-tools/github-readme-stats-action@v1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Generate pin card for ${{ matrix.owner }}/${{ matrix.repo }}
+        uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
         with:
           card: pin
           options: >-
             {
-              "username": "${{ github.repository_owner }}",
+              "username": "${{ matrix.owner }}",
               "repo": "${{ matrix.repo }}",
               "theme": "transparent"
             }
-          path: profile/pins/${{ matrix.repo }}.svg
+          path: profile/pins/${{ matrix.owner }}-${{ matrix.repo }}.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
-          name: pin-${{ matrix.repo }}
+          name: pin-${{ matrix.owner }}-${{ matrix.repo }}
           path: profile/pins/*.svg
-
   commit-cards:
-    needs: [generate-cards, generate-pins]
+    needs: [generate-readme-stats, generate-repository-pins]
     if: ${{ !failure() && !cancelled() }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: stat-cards
           path: profile
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: ${{ needs.generate-pins.result == 'success' }}
         with:
           pattern: pin-*
