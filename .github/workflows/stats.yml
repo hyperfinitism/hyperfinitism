@@ -10,10 +10,8 @@ permissions:
 
 jobs:
   generate-readme-stats:
-    if: true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Generate readme stats card
         uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
         with:
@@ -40,28 +38,27 @@ jobs:
             }
           path: assets/stats/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+      - name: Upload stat cards
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
-          name: stat-cards
+          name: cards-stats
           path: assets/stats/*.svg
   generate-repository-pins:
-    if: true
     runs-on: ubuntu-latest
     strategy:
       matrix:
-          include:
-            - repo: "rust-tpm2-cli"
-              owner: "hyperfinitism"
-            - repo: "enact-rs"
-              owner: "hyperfinitism"
-            - repo: "ortho"
-              owner: "hyperfinitism"
-            - repo: "gh-contrib-stats"
-              owner: "hyperfinitism"
-            - repo: "license-logic"
-              owner: "hyperfinitism"
+        include:
+          - repo: rust-tpm2-cli
+            owner: hyperfinitism
+          - repo: enact-rs
+            owner: hyperfinitism
+          - repo: ortho
+            owner: hyperfinitism
+          - repo: gh-contrib-stats
+            owner: hyperfinitism
+          - repo: license-logic
+            owner: hyperfinitism
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Generate pin card for ${{ matrix.owner }}/${{ matrix.repo }}
         uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
         with:
@@ -74,9 +71,10 @@ jobs:
             }
           path: assets/pins/${{ matrix.owner }}-${{ matrix.repo }}.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+      - name: Upload pin card
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
-          name: pin-${{ matrix.owner }}-${{ matrix.repo }}
+          name: cards-pin-${{ matrix.owner }}-${{ matrix.repo }}
           path: assets/pins/*.svg
   commit-cards:
     needs: [generate-readme-stats, generate-repository-pins]
@@ -84,14 +82,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - name: Download stat cards
+        if: ${{ needs.generate-readme-stats.result == 'success' }}
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          name: stat-cards
+          name: cards-stats
           path: assets/stats
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        if: ${{ needs.generate-pins.result == 'success' }}
+      - name: Download pin cards
+        if: ${{ needs.generate-repository-pins.result == 'success' }}
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          pattern: pin-*
+          pattern: cards-pin-*
           path: assets/pins
           merge-multiple: true
 
