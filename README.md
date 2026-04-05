@@ -1,7 +1,32 @@
-## hyperfinitism
+## Saluton! Mi estas hyperfinitism
 
-### GitHub Statistics
+### Security Research
 
+R&D engineer in cybersecurity, focusing on **Confidential Computing** / **Trusted Execution Environments (TEE)**.
+
+### Scientific Research
+
+Independent researcher in mathematics, theoretical computer science, and philosophy.
+Research interests include:
+
+- **Mathematics**: Mathematical Logic, Nonstandard Mathematics, Topology, Recursion Theory
+- **Theoretical Computer Science**: Theory of Computation, Type Theory, Domain Theory, Term Rewriting Systems, Formal Methods
+- **Philosophy**: Philosophy of Mathematics, Philosophy of Law, Mathematical Philosophy
+
+### Open Source
+
+Active contributor to open-source software, particularly in the domain of **Hardware-assisted Isolated Execution Environments (HIEE)**, including both TEEs and Trusted Platform Modules (TPM).
+Maintainer and developer of security-oriented tooling and libraries.
+
+### Selected Repositories
+
+[![rust-tpm2-cli](assets/pins/hyperfinitism-rust-tpm2-cli.svg)](https://github.com/hyperfinitism/rust-tpm2-cli)
+[![enact-rs](assets/pins/hyperfinitism-enact-rs.svg)](https://github.com/hyperfinitism/enact-rs)
+[![ortho](assets/pins/hyperfinitism-ortho.svg)](https://github.com/hyperfinitism/ortho)
+[![gh-contrib-stats](assets/pins/hyperfinitism-gh-contrib-stats.svg)](https://github.com/hyperfinitism/gh-contrib-stats)
+[![license-logic](assets/pins/hyperfinitism-license-logic.svg)](https://github.com/hyperfinitism/license-logic)
+
+### GitHub Stats
 
 ![Contribution Stats](assets/stats/stats.svg)
 
