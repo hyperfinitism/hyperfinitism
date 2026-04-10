@@ -109,7 +109,7 @@
       <circle data-testid="lang-color" cx="0" cy="-5" r="6" fill="#3572A5" />
       <text data-testid="lang-name" class="gray" x="15">Python</text>
     </g>
-    </g><g transform="translate(62.275000000000006, 0)"><g transform="translate(0, 0)">
+    </g><g transform="translate(62.21999998092651, 0)"><g transform="translate(0, 0)">
       <svg
         class="icon"
         y="-12"
