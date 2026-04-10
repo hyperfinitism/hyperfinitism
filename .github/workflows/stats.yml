@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Generate readme stats card
-        uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
+        # uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
+        uses: hyperfinitism/github-readme-stats-action@1af0253a90914e782980ad25e9197ec4f7eefe8c
         with:
           card: stats
           options: >-
@@ -26,7 +27,8 @@ jobs:
           path: assets/stats/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate top languages card
-        uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
+        # uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
+        uses: hyperfinitism/github-readme-stats-action@1af0253a90914e782980ad25e9197ec4f7eefe8c
         with:
           card: top-langs
           options: >-
@@ -60,7 +62,8 @@ jobs:
             owner: hyperfinitism
     steps:
       - name: Generate pin card for ${{ matrix.owner }}/${{ matrix.repo }}
-        uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
+        # uses: readme-tools/github-readme-stats-action@b4d2ef3b8051484b318d455163153b23a2b35fa2 # v1.1.0
+        uses: hyperfinitism/github-readme-stats-action@1af0253a90914e782980ad25e9197ec4f7eefe8c
         with:
           card: pin
           options: >-
