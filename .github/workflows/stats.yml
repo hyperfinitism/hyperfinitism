@@ -21,7 +21,7 @@ jobs:
               "username": "${{ github.repository_owner }}",
               "theme": "transparent",
               "show_icons": true,
-              "show": "prs_merged"
+              "show": "prs_merged_percentage"
             }
           path: assets/stats/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
