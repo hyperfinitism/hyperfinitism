@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Takuma IMAMURA's GitHub Stats, Rank: B+</title>
-        <desc id="descId">Total Stars Earned: 16, Total Commits  : 565, Total PRs: 299, Merged PRs Percentage: 88.96, Total Issues: 42, Contributed to (last year): 37</desc>
+        <desc id="descId">Total Stars Earned: 16, Total Commits  : 566, Total PRs: 301, Merged PRs Percentage: 88.37, Total Issues: 42, Contributed to (last year): 37</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 114.06853388508875;
+        stroke-dashoffset: 114.02169397254669;
       }
     }
   
@@ -177,7 +177,7 @@
         x="224.01"
         y="12.5"
         data-testid="commits"
-      >565</text>
+      >566</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -192,7 +192,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs"
-      >299</text>
+      >301</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
@@ -207,7 +207,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs_merged_percentage"
-      >88.96 %</text>
+      >88.37 %</text>
     </g>
   </g><g transform="translate(0, 100)">
     <g class="stagger" style="animation-delay: 1050ms" transform="translate(25, 0)">
