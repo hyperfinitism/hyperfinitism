@@ -2,7 +2,7 @@ name: Update Stats
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # Runs once daily
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 
 permissions:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Generate readme stats card
-        uses: stats-organization/github-readme-stats-action@8614f3a61601854731381d853f8566867754a5ca # v2.0.0
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
         with:
           card: stats
           options: >-
@@ -27,7 +27,7 @@ jobs:
           path: assets/stats/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Generate top languages card
-        uses: stats-organization/github-readme-stats-action@8614f3a61601854731381d853f8566867754a5ca # v2.0.0
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
         with:
           card: top-langs
           options: >-
@@ -40,7 +40,7 @@ jobs:
           path: assets/stats/top-langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload stat cards
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: cards-stats
           path: assets/stats/*.svg
@@ -63,7 +63,7 @@ jobs:
             owner: hyperfinitism
     steps:
       - name: Generate pin card for ${{ matrix.owner }}/${{ matrix.repo }}
-        uses: stats-organization/github-readme-stats-action@8614f3a61601854731381d853f8566867754a5ca # v2.0.0
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
         with:
           card: pin
           options: >-
@@ -75,7 +75,7 @@ jobs:
           path: assets/pins/${{ matrix.owner }}-${{ matrix.repo }}.svg
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload pin card
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: cards-pin-${{ matrix.owner }}-${{ matrix.repo }}
           path: assets/pins/*.svg
@@ -84,16 +84,16 @@ jobs:
     if: ${{ !failure() && !cancelled() }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Download stat cards
         if: ${{ needs.generate-readme-stats.result == 'success' }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: cards-stats
           path: assets/stats
       - name: Download pin cards
         if: ${{ needs.generate-repository-pins.result == 'success' }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           pattern: cards-pin-*
           path: assets/pins
